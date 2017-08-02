@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="OUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <logger name="org.kondrak.lana" level="TRACE">
+        <appender-ref ref="OUT" />
+    </logger>
+
+    <logger name="org.springframework" level="DEBUG">
+        <appender-ref ref="OUT" />
+    </logger>
+
+    <!--<root level="debug">-->
+        <!--<appender-ref ref="OUT" />-->
+    <!--</root>-->
+</configuration>
