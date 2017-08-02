@@ -50,14 +50,15 @@ public class LanaConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/");
+        registry.addResourceHandler("/**")
+                .addResourceLocations("/lana-frontend/dist/");
     }
 
     @Bean
     public ViewResolver getViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/");
+//        resolver.setPrefix("/");
         resolver.setSuffix(".html");
         return resolver;
     }
