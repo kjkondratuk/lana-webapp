@@ -2,3 +2,4 @@ config.properties
 target
 .idea
 *.iml
+node_modules

@@ -1,18 +1,16 @@
 package org.kondrak.lana;
 
-import org.apache.ibatis.mapping.Environment;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.transaction.SpringManagedTransactionFactory;
 import org.postgresql.ds.PGPoolingDataSource;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.stereotype.Repository;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.sql.DataSource;
 import java.io.BufferedReader;
@@ -22,7 +20,7 @@ import java.util.Properties;
 
 @Configuration
 @MapperScan("org.kondrak.lana.mappers")
-public class LanaConfig {
+public class LanaConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public DataSource dataSource() throws Exception {
@@ -44,18 +42,23 @@ public class LanaConfig {
 
     @Bean
     public SqlSessionFactoryBean sqlSessionFactory() throws Exception {
-//        Environment env = new Environment("default", new SpringManagedTransactionFactory(), dataSource());
-//        org.apache.ibatis.session.Configuration config = new org.apache.ibatis.session.Configuration();
-//        config.setEnvironment(env);
-//        SqlSessionFactoryBuilder sessionFactoryBuilder = new SqlSessionFactoryBuilder();
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setTransactionFactory(new SpringManagedTransactionFactory());
         bean.setDataSource(dataSource());
         return bean;
     }
 
-//    @Bean
-//    public SqlSessionTemplate sqlSessionTemplate() throws Exception {
-//        return new SqlSessionTemplate(sqlSessionFactory());
-//    }
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("/resources/");
+    }
+
+    @Bean
+    public ViewResolver getViewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/");
+        resolver.setSuffix(".html");
+        return resolver;
+    }
 }

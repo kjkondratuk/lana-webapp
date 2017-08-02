@@ -5,19 +5,20 @@ import org.kondrak.lana.data.ConfigScope;
 import org.kondrak.lana.data.ConfigType;
 import org.kondrak.lana.data.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class RootController {
 
     @Autowired
     ConfigDao configDao;
 
-    @RequestMapping("/")
-    String getRoot() {
+    @RequestMapping("/obj")
+    @ResponseBody String getRootObject() {
         List<Configuration> c = configDao.getConfigurationByNameScopeAndType(ConfigType.ARCHERISM_COMMAND, ConfigScope.GUILD, "140624972421922817");
         String response = "";
 
@@ -26,5 +27,10 @@ public class RootController {
         }
 
         return response;
+    }
+
+    @RequestMapping("/")
+    String getRootPage() {
+        return "index";
     }
 }
