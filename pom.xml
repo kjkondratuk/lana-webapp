@@ -127,7 +127,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>org.kondrak.archer.bot.ArcherMain</mainClass>
+                            <mainClass>org.kondrak.lana.LanaApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
