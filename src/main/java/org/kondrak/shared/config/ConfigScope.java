@@ -1,4 +1,4 @@
-package org.kondrak.lana.data;
+package org.kondrak.shared.config;
 
 /**
  * Describes the scope of a generic configuration.

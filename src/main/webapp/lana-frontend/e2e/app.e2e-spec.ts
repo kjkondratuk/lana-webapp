@@ -1,4 +1,4 @@
-import { LanaFrontendPage } from './app.po';
+import {LanaFrontendPage} from './app.po';
 
 describe('lana-frontend App', () => {
   let page: LanaFrontendPage;

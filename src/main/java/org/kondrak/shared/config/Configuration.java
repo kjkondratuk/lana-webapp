@@ -1,4 +1,4 @@
-package org.kondrak.lana.data;
+package org.kondrak.shared.config;
 
 public class Configuration {
 

@@ -1,9 +1,9 @@
 package org.kondrak.lana;
 
-import org.kondrak.lana.data.ConfigDao;
-import org.kondrak.lana.data.ConfigScope;
-import org.kondrak.lana.data.ConfigType;
-import org.kondrak.lana.data.Configuration;
+import org.kondrak.shared.config.ConfigDao;
+import org.kondrak.shared.config.ConfigScope;
+import org.kondrak.shared.config.ConfigType;
+import org.kondrak.shared.config.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

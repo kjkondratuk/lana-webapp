@@ -1,6 +1,6 @@
-package org.kondrak.lana.data;
+package org.kondrak.shared.config;
 
-import org.kondrak.lana.mappers.ConfigMapper;
+import org.kondrak.shared.mappers.ConfigMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,5 +14,13 @@ public class ConfigDao {
 
     public List<Configuration> getConfigurationByNameScopeAndType(ConfigType type, ConfigScope scope, String fkey) {
         return configMapper.getConfigurationByNameScopeAndType(type, scope, fkey);
+    }
+
+    public int addBooleanConfiguration(ConfigType type, ConfigScope scope, String fkey) {
+        return configMapper.addBooleanConfiguration(type, scope, fkey);
+    }
+
+    public int removeBooleanConfiguration(ConfigType type, ConfigScope scope, String fkey) {
+        return configMapper.removeBooleanConfiguration(type, scope, fkey);
     }
 }

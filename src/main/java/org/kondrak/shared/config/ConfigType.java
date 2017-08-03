@@ -1,4 +1,4 @@
-package org.kondrak.lana.data;
+package org.kondrak.shared.config;
 
 public enum ConfigType {
     ARCHERISM_COMMAND("ARCHERISM_COMMAND"),
