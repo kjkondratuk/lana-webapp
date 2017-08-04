@@ -21,6 +21,7 @@ public class MessageDao {
     @Autowired
     private MessageMapper messageMapper;
 
+    // TODO: add handling for when messages are too large to store
     public void saveMessage(IMessage msg) {
         messageMapper.saveMessage(
                 msg.getChannel().getStringID(),
