@@ -3,11 +3,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'main-root',
   template: `
-    <div class="main-content">
+    <div class="app-main-content">
         <header-root></header-root>
         <sidebar-root></sidebar-root>
-        <content-root></content-root>
+        <router-outlet></router-outlet>
     </div>
-  `
+  `,
+  styles: [`
+    .app-main-content {
+      width: 90vw;
+      height: 100vh;
+      display: table;
+      margin: 0 auto;
+    }
+  `]
 })
 export class MainComponent { }

@@ -16,6 +16,10 @@ public class ConfigDao {
         return configMapper.getConfigurationByNameScopeAndType(type, scope, fkey);
     }
 
+    public List<Configuration> getConfigurationByScopeAndForeignKey(ConfigScope scope, String fkey) {
+        return configMapper.getConfigurationByScopeAndForeignKey(scope, fkey);
+    }
+
     public int addBooleanConfiguration(ConfigType type, ConfigScope scope, String fkey) {
         return configMapper.addBooleanConfiguration(type, scope, fkey);
     }
@@ -23,4 +27,5 @@ public class ConfigDao {
     public int removeBooleanConfiguration(ConfigType type, ConfigScope scope, String fkey) {
         return configMapper.removeBooleanConfiguration(type, scope, fkey);
     }
+
 }

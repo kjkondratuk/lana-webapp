@@ -1,5 +1,7 @@
 package org.kondrak.shared.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sx.blah.discord.handle.obj.IGuild;
@@ -9,6 +11,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class ConfigurationService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ConfigurationService.class);
 
     @Autowired
     private ConfigDao configDao;
@@ -41,6 +45,11 @@ public class ConfigurationService {
 
     public List<Configuration> getConfigurationByNameScopeAndType(ConfigType type, ConfigScope scope, String fkey) {
         return configDao.getConfigurationByNameScopeAndType(type, scope, fkey);
+    }
+
+    public List<Configuration> getConfigsForGuild(String guildId) {
+        LOG.info("Scope: {} - Guild ID: {}", ConfigScope.GUILD, guildId);
+        return configDao.getConfigurationByScopeAndForeignKey(ConfigScope.GUILD, guildId);
     }
 
     public int addBooleanConfiguration(ConfigType type, ConfigScope scope, String guildId) {

@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background-color: gray;
-  color: azure;
+  /*background-color: #CC8E71;*/
+  background-image: url("./assets/lana.png");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-family: arial;
+  color: #ca7882;
+  margin: 0;
 }
