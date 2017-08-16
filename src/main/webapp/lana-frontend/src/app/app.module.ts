@@ -29,9 +29,10 @@ import { GuildDetailComponent } from "./guild/detail/guildDetail.component";
         { path: '', component: ContentComponent },
         { path: 'guild/:guildId', component: GuildDetailComponent }
       ]
-    }], { enableTracing: false })
+    }], {
+      enableTracing: false
+    })
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
