@@ -12,10 +12,10 @@ RUN npm install -g @angular/cli@1.2.6
 
 RUN git clone https://github.com/Paintface07/lana-webapp.git
 
-ENV FRONTEND_ROOT /lana-webapp/src/main/webapp/lana-frontend
+ENV FRONTEND_ROOT /lana-webapp/src/main/webapp
 ENV PROJECT_ROOT /lana-webapp
 
-RUN cd ${FRONTEND_ROOT} && npm install && ng build --base-href /lana/
+RUN cd ${FRONTEND_ROOT} && npm install && npm run-script build
 RUN ls -a ${FRONTEND_ROOT}/dist
 RUN cd ${PROJECT_ROOT}/ && mvn install
 
